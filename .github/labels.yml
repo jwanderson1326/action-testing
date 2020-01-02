@@ -7,6 +7,3 @@
 - name: Enhancement
   description: We are making cool changes
   color: cfd3d7
-- name: Hack
-  description: We are hacking a fix
-  color: f0971f
