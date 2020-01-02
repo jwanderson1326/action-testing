@@ -1,6 +1,9 @@
 name: Sync labels
 on:
-  push
+  push:
+    paths:
+      - ./.github/labels.yml
+
 
 jobs:
   configure-labels:
