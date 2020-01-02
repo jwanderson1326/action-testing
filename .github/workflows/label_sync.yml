@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'labels/**'
 
 jobs:
   configure-labels:
@@ -13,4 +15,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          manifest: .github/labels.yml
+          manifest: labels/labels.yml
