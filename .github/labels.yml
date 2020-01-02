@@ -4,6 +4,6 @@
 - name: documentation
   description: Additions to documentation
   color: 0075ca
-- name: Enhancement
+- name: Enhancements
   description: We are making cool changes
   color: cfd3d7
