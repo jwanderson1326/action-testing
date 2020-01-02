@@ -5,7 +5,9 @@ on:
       - master
     paths:
       - .github/labels.yml
-  build:
+
+jobs:
+  configure-labels:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@1.0.0
