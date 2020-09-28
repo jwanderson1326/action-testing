@@ -1,0 +1,14 @@
+name: build_image
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+ dump:
+  runs-on: ubuntu-latest
+  steps:
+  - name: $github
+    run:   echo "$GITHUB_CONTEXT"
+    env:
+     GITHUB_CONTEXT: ${{ toJson(github) }}

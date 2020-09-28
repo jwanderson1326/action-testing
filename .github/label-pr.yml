@@ -1,8 +1,0 @@
-- regExp: ".*\\.py+$"
-  labels: ["python"]
-- regExp: ".*\\.sql+$"
-  labels: ["database", "critical"]
-- regExp: ".*\\.md+$"
-  labels: ["documentation"]
-- regExp: "Dockerfile|Jenkinsfile|Makefile"
-  labels: ["DeploymentFiles"]
