@@ -1,13 +1,9 @@
+from time import sleep
+
 def hello():
     '''Says hello'''
-    print("Hello")
-    print("Hello")
-    print("Hello")
-    print("Hello")
-    print("Hello")
-    print("Hello")
-    print("Hello")
-    print("Hello")
-    print("Hello")
-    print("Hello")
-    print("Hello")
+    while True:
+        print("Hello")
+        sleep(20)
+
+hello()
