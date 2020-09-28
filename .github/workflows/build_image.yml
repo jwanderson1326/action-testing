@@ -23,8 +23,6 @@ jobs:
   - name: build image
     if: ${{ github.event.comment.body == 'staging' }}
     uses: docker/build-push-action@v2
-    env:
-      HASH: ${{ github.sha }}
     with:
       context: .
       file: ./Dockerfile
@@ -33,5 +31,5 @@ jobs:
         TEST_ARG=booya
         ANOTHER=boom
       tags: |
-        "892770019132.dkr.ecr.us-east-1.amazonaws.com/actions-testing:latest"
-        "892770019132.dkr.ecr.us-east-1.amazonaws.com/actions-testing:$HASH"
+        892770019132.dkr.ecr.us-east-1.amazonaws.com/actions-testing:latest
+        892770019132.dkr.ecr.us-east-1.amazonaws.com/actions-testing:${{ github.sha }}
