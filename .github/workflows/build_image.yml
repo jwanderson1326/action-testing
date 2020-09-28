@@ -1,4 +1,4 @@
-name: build_image
+name: Deploy Miniflow
 
 on:
   issue_comment:
@@ -32,3 +32,12 @@ jobs:
         ANOTHER=boom
       tags: |
         892770019132.dkr.ecr.us-east-1.amazonaws.com/actions-testing:${{ github.actor }}-latest
+
+  - name: Push to ECR
+    if: ${{ github.event.comment.body == 'staging' }}
+    uses: jwalton/gh-ecr-push@v1
+    with:
+      access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      region: us-east-1
+      image: 892770019132.dkr.ecr.us-east-1.amazonaws.com/actions-testing:${{ github.actor }}-latest
