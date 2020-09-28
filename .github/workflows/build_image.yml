@@ -23,6 +23,6 @@ jobs:
       context: .
       file: ./Dockerfile
       push: false
-      build_args: |
+      build-args: |
         TEST_ARG=booya
         ANOTHER=boom
