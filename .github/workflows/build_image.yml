@@ -12,3 +12,6 @@ jobs:
     run:   echo "$GITHUB_CONTEXT"
     env:
      GITHUB_CONTEXT: ${{ toJson(github) }}
+  - name: test if
+    if: ${{ github.event.comment.body == 'staging' }}
+    run: echo "OH YEAH!"
