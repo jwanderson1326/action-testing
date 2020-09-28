@@ -31,7 +31,7 @@ jobs:
         TEST_ARG=booya
         ANOTHER=boom
       tags: |
-        892770019132.dkr.ecr.us-east-1.amazonaws.com/actions-testing:${{ github.actor }}-latest
+        actions-testing:${{ github.actor }}-latest
 
   - name: Push to ECR
     if: ${{ github.event.comment.body == 'staging' }}
@@ -40,4 +40,4 @@ jobs:
       access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
       secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       region: us-east-1
-      image: 892770019132.dkr.ecr.us-east-1.amazonaws.com/actions-testing:${{ github.actor }}-latest
+      image: actions-testing:${{ github.actor }}-latest
