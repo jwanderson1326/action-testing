@@ -31,5 +31,4 @@ jobs:
         TEST_ARG=booya
         ANOTHER=boom
       tags: |
-        892770019132.dkr.ecr.us-east-1.amazonaws.com/actions-testing:latest
-        892770019132.dkr.ecr.us-east-1.amazonaws.com/actions-testing:${{ github.sha }}
+        892770019132.dkr.ecr.us-east-1.amazonaws.com/actions-testing:${{ github.actor }}-latest
