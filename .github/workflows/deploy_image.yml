@@ -32,6 +32,10 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
+    - name: Bring Up App
+      run: |
+        aws ecs update-service --cluster master-justin --service actions-testing-${{ github.actor }} --desired-count 1
+
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
