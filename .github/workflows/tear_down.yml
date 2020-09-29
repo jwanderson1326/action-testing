@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: $github
+      run:   echo "$GITHUB_CONTEXT"
+      env:
+       GITHUB_CONTEXT: ${{ toJson(github) }}
+       ISSUE_NUMBER: ${{ github.event.issue.number }}
+
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
