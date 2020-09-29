@@ -67,7 +67,7 @@ jobs:
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: actions-testing
+        service: actions-testing-${{ github.actor }}
         cluster: master-justin
         wait-for-service-stability: true
 
