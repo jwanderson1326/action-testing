@@ -4,6 +4,6 @@ def hello():
     '''Says hello'''
     while True:
         print("Hello")
-        sleep(15)
+        sleep(17)
 
 hello()
