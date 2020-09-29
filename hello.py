@@ -1,7 +1,7 @@
 from time import sleep
 
 def hello():
-    '''Says Hello'''
+    '''Says hello'''
     while True:
         print("Hello")
         sleep(17)
