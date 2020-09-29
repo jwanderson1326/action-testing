@@ -9,9 +9,9 @@ on:
       - master
 
 jobs:
-  build_comment:
+  build:
     if: ${{ github.event.comment.body == 'staging' || github.event_name == 'pull_request' }}
-    name: Build on Comment
+    name: Deploy the App
     runs-on: ubuntu-latest
 
     steps:
