@@ -7,4 +7,4 @@ RUN echo $TEST_ARG
 
 COPY hello.py hello.py
 
-CMD [ python hello.py ]
+CMD [ "python3", "hello.py" ]
