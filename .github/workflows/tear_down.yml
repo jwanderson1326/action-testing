@@ -20,4 +20,4 @@ jobs:
 
     - name: Take Down App
       run: |
-        aws ecs update-service --cluster integration-ecs --service actions-testing-${{ github.actor }} --desired-count 0
+        aws ecs update-service --cluster master-justin --service actions-testing-${{ github.actor }} --desired-count 0
