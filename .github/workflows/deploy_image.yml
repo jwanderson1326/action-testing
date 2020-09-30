@@ -24,13 +24,13 @@ jobs:
       if: ${{ github.event_name == 'pull_request' }}
       run: |
         echo "::set-env name=PR_AUTHOR::${{ github.actor }}"
-        echo "$PR_AUTHOR"
+        echo ${{ env.PR_AUTHOR }}
 
     - name: Set Author Comment
       if: ${{ github.event_name == 'issue_comment' }}
       run: |
         echo "::set-env name=PR_AUTHOR::${{ github['event']['issue']['labels'][0]['name'] }}"
-        echo "$PR_AUTHOR"
+        echo ${{ env.PR_AUTHOR }}
 
     - name: Checkout Comment
       if: ${{ github.event.comment.body == 'staging' }}
