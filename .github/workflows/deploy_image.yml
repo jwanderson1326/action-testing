@@ -25,6 +25,15 @@ jobs:
       if: ${{ github.event_name == 'pull_request' }}
       uses: actions/checkout@v2
 
+    - name: Auto Label Pull Request
+      uses: Renato66/auto-label@v2
+      if: ${{ github.event_name == 'pull_request' }}
+      env:
+        PR_OPENER: ${{ github.actor }}
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        default-labels: '["requester:$PR_OPENER"]'
+
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
