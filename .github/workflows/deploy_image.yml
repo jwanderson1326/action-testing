@@ -9,12 +9,28 @@ on:
       - master
 
 jobs:
+  auto_label_pr:
+    if: ${{ github.event_name == 'pull_request' }}
+    name: Label PR with Author
+    runs-on: ubuntu-latest
+    steps:
+    - name: Auto Label Pull Request
+      uses: JulienKode/team-labeler-action@v0.1.0
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+
   build:
     if: ${{ github.event.comment.body == 'staging' || github.event_name == 'pull_request' }}
     name: Deploy the App
     runs-on: ubuntu-latest
 
     steps:
+    - name: $github
+      run:   echo "$GITHUB_CONTEXT"
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+        ISSUE_NUMBER: ${{ github.event.issue.number }}
+
     - name: Checkout Comment
       if: ${{ github.event.comment.body == 'staging' }}
       uses: actions/checkout@v2
