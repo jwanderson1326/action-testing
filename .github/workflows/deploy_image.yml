@@ -24,13 +24,11 @@ jobs:
       if: ${{ github.event_name == 'pull_request' }}
       run: |
         echo "::set-env name=PR_AUTHOR::${{ github.actor }}"
-        echo "${{ env.PR_AUTHOR }}"
 
     - name: Set Author Comment
       if: ${{ github.event_name == 'issue_comment' }}
       run: |
         echo "::set-env name=PR_AUTHOR::${{ github['event']['issue']['labels'][0]['name'] }}"
-        echo "${{ env.PR_AUTHOR }}"
 
     - name: Checkout Comment
       if: ${{ github.event.comment.body == 'staging' }}
@@ -58,6 +56,7 @@ jobs:
     - name: Bring Up App
       run: |
         aws ecs update-service --cluster master-justin --service actions-testing-${{ github.actor }} --desired-count 1
+        echo "$PR_AUTHOR"
 
     - name: Login to Amazon ECR
       id: login-ecr
