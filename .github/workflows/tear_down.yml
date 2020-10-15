@@ -1,4 +1,4 @@
-name: Tear Down Miniflow
+name: Say Hello
 
 on:
   push:
@@ -6,27 +6,21 @@ on:
       - master
 
 jobs:
-  tear_down:
-    name: Tear Down the App
+  hello:
+    name: Hello
     runs-on: ubuntu-latest
 
     steps:
-    - name: $github
-      run: |
-        echo "$GITHUB_CONTEXT"
-        echo "$FIRST_COMMITTER"
-      env:
-       GITHUB_CONTEXT: ${{ toJson(github) }}
-       ISSUE_NUMBER: ${{ github.event.issue.number }}
-       FIRST_COMMITTER: ${{ github['event']['commits'][0]['author']['username'] }}
+    # - name: $github
+    #   run: |
+    #     echo "$GITHUB_CONTEXT"
+    #     echo "$FIRST_COMMITTER"
+    #   env:
+    #    GITHUB_CONTEXT: ${{ toJson(github) }}
+    #    ISSUE_NUMBER: ${{ github.event.issue.number }}
+    #    FIRST_COMMITTER: ${{ github['event']['commits'][0]['author']['username'] }}
 
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
+    - name: Say Hello to Me
+      uses: jwanderson1326/my-first-action@v1
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
-
-    - name: Take Down App
-      run: |
-        aws ecs update-service --cluster master-justin --service actions-testing-${{ github.actor }} --desired-count 0
+        who-to-greet: "JUSTIN!!!"
