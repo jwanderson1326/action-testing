@@ -21,6 +21,6 @@ jobs:
     #    FIRST_COMMITTER: ${{ github['event']['commits'][0]['author']['username'] }}
 
     - name: Say Hello to Me
-      uses: jwanderson1326/my-first-action@v2
+      uses: jwanderson1326/my-first-action@v3
       with:
         who-to-greet: "JUSTIN!!!"
