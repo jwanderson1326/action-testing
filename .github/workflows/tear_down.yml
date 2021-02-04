@@ -11,16 +11,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # - name: $github
-    #   run: |
-    #     echo "$GITHUB_CONTEXT"
-    #     echo "$FIRST_COMMITTER"
-    #   env:
-    #    GITHUB_CONTEXT: ${{ toJson(github) }}
-    #    ISSUE_NUMBER: ${{ github.event.issue.number }}
-    #    FIRST_COMMITTER: ${{ github['event']['commits'][0]['author']['username'] }}
+    - name: $github
+      run: |
+        echo "$GITHUB_CONTEXT"
+        echo "$FIRST_COMMITTER"
+      env:
+       GITHUB_CONTEXT: ${{ toJson(github) }}
+       ISSUE_NUMBER: ${{ github.event.issue.number }}
+       FIRST_COMMITTER: ${{ github['event']['commits'][0]['author']['username'] }}
 
-    - name: Say Hello to Me
-      uses: jwanderson1326/my-first-action@v3
+    - name: Setup TF
+      uses: hashicorp/setup-terraform@v1
       with:
-        who-to-greet: "JUSTIN!!!"
+        terraform_version: 0.12.20
