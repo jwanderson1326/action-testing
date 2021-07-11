@@ -7,7 +7,7 @@ on:
 
 jobs:
   terraform:
-    name: Hello
+    name: Terraform
     runs-on: ubuntu-latest
 
     steps:
